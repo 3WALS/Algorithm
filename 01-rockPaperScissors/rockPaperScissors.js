@@ -19,36 +19,49 @@
 
 var rockPaperScissors = function (n) {
 	var rps = ["rock", "paper", "scissors"];
-	//plus(nString)
+    var result = [];
+    var nString = "";
+    for (var i = 0; i < n; i++) {
+        nString = "0" + nString;
+    }
+    do {
+        var temp = [];
+        for (var j = 0; j < n; j++) {
+            temp.push(rps[nString[j]]);
+        }
+        result.push(temp);
+        nString = plus(nString);
+    }
+    while (parseInt(nString) !== 0);
+    return result;
 };
 
 var plus = function (nString) {
-	var nString = String(parseInt(nString[nString.length-1]) + 1);
 	var result = "";
 	var current = "";
-	if (nString[nString.length-1] === "3") {
-		chk = true;
-	}
-	else {
-		chk = false;
-	}
-	console.log(chk);
-	for (var i = nString.length-1; i>=0; i--) {
+    var chk = true;
+	for (var i = nString.length-1; i >= 0; i--) {
 		if (chk === true) {
 			current = String(parseInt(nString[i]) + 1);
-		}
-		if (current === '3') {
-			chk = true;
-			result = "0" + result;
-			console.log(result);
+            if (current === '3') {
+                chk = true;
+                result = "0" + result;
+            }
+            else {
+                result = current + result;
+                chk = false;
+            }
 		}
 		else {
-			result = current + result;
-			console.log(result);
+			result = nString[i] + result;
 		}
 	}
-	console.log(current, chk, result);
 	return result;
-}
-rockPaperScissors(4);
-console.log(plus('011'));
+};
+console.log(rockPaperScissors(3));
+
+var rps2 = function (n) {
+	var rps = ["rock", "paper", "scissors"];
+    var result = [];
+};
+rps2(2);
