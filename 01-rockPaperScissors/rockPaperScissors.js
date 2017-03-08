@@ -18,15 +18,4 @@
 */
 
 var rockPaperScissors = function (n) {
-	var scissorsRockPaper = ["scissors", "rock", "paper"];
-	var sub_result = [];
-	var result = [];
-	for(var i=0;i<n;i++){
-		sub_result[i] = _.first(_shuffle(scissorsRockPaper),1);
-	}
-	for(var j=0;j<n;j++){
-		result[j].push(sub_result);
-	}
-	return result;
-  // TODO: your solution here
 };
