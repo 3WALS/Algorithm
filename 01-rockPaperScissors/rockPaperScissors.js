@@ -59,9 +59,3 @@ var plus = function (nString) {
 	return result;
 };
 console.log(rockPaperScissors(3));
-
-var rps2 = function (n) {
-	var rps = ["rock", "paper", "scissors"];
-    var result = [];
-};
-rps2(2);
