@@ -7,5 +7,13 @@
  */
 
 var firstNonRepeatedCharacter = function(string) {
-  // TODO: your solution here
+  var check = string[0],
+      arr = string.split(''),
+      length = string.length;
+  for ( var i = 0; i < length; i++ ) {
+    if ( i === 0 || arr[i-1] === arr[i] ) continue;
+    return arr[i];
+  }
 };
+
+firstNonRepeatedCharacter('AACBDB');
