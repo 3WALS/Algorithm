@@ -29,6 +29,3 @@ Array.prototype.isSubsetOf = function (arr) {
     }
     return true;
 };
-
-var a = ['commit','push', 'blame'];
-console.log(a.isSubsetOf(['commit','rebase','push','blame']));
