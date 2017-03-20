@@ -37,5 +37,22 @@ var i;
 
 
 var bubbleSort = function(array) {
-  // Your code here.
+  while (true) {
+    var temp = 0;
+    var chkr = 0;
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] > array[i+1]) {
+        temp = array[i];
+        array[i] = array[i+1];
+        array[i+1] = temp;
+        chkr += 1;
+      }
+    }
+    if (chkr === 0) break;
+  }
+  return array;
 };
+
+arr = [2,4,6,2,2,7,3,1,52,624,73,8,2,24,34,34,845,346,463,1,35,537,8,62,34,2,24,35,2,23,2000,15000];
+var result = bubbleSort(arr);
+console.log(result);
