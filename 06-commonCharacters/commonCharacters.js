@@ -11,5 +11,20 @@
  */
 
 var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
+  var result = '';
+  var obj = {};
+  for (var char of string1) {
+    if (char === ' ') continue;
+    else if (obj[char] === undefined) obj[char] = true;
+  }
+  for (char of string2) {
+  	if (obj[char] === true) {
+      result += char;
+      obj[char] = false;
+    }
+  }
+  return result;
 };
+
+var res = commonCharacters('acexivoukss', 'aegihobukss');
+console.log(res);
