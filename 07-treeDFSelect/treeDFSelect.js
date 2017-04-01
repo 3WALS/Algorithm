@@ -36,6 +36,19 @@ var Tree = function(value){
 };
 
 Tree.prototype.DFSelect = function(filter) {
+  var result = [];
+
+  var DFSrecur = function (current, currentDepth) {
+    if (current.value !== undefined) {
+      if (filter(current.value, currentDepth)) result.push(current.value);
+      for (var child of current.children) {
+        DFSrecur(child, currentDepth + 1);
+      }
+    }
+  };
+
+  DFSrecur(this, 0);
+  return result;
 };
 
 
@@ -93,3 +106,17 @@ Tree.prototype.removeChild = function(child){
     throw new Error("That node is not an immediate child of this tree");
   }
 };
+
+var root1 = new Tree(1);
+var branch2 = root1.addChild(2);
+var branch3 = root1.addChild(3);
+var leaf4 = branch2.addChild(4);
+var leaf5 = branch2.addChild(5);
+var leaf6 = branch3.addChild(6);
+var leaf7 = branch3.addChild(7);
+
+console.dir(root1);
+var filter = function (value, depth) {
+  return depth === 1;
+};
+console.log(root1.DFSelect(filter));
